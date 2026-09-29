@@ -1,57 +1,84 @@
+
 import Link from 'next/link';
 
 const projects = [
   {
     id: 1,
-    title: "CS50P - Introdução à Programação com Python (Harvard)",
-    description: "Exercícios práticos do curso CS50P da Universidade de Harvard, focado na introdução à programação com Python. O curso abrange conceitos fundamentais como tratamento de exceções, depuração de código (debugging), escrita de testes unitários, utilização de bibliotecas de terceiros, aplicação de expressões regulares para validação e extração de dados, princípios de Programação Orientada a Objetos (OOP) incluindo classes e objetos, além de técnicas para manipulação de arquivos.",
-    link: "https://github.com/danielcscarrtezini/CS50P-Harvard-s-Introduction-to-Programming-with-Python",
-    technology: "Python"
+    title: 'CS50P - Introdução à Programação com Python (Harvard)',
+    description:
+      'Exercícios práticos do curso CS50P da Universidade de Harvard, com foco nos fundamentos da programação com Python. O conteúdo inclui tratamento de exceções, depuração, testes unitários, bibliotecas de terceiros, expressões regulares, programação orientada a objetos e manipulação de arquivos.',
+    link: 'https://github.com/danielscartezini/CS50Python',
+    technology: 'Python',
   },
   {
     id: 2,
-    title: "Habit Tracker (Aplicativo de Acompanhamento de Hábitos)",
-    description: "Uma aplicação desenvolvida para auxiliar no monitoramento e gerenciamento de hábitos diários. Este projeto visa fornecer uma ferramenta simples e eficaz para que os usuários possam registrar e acompanhar seu progresso na formação de novos hábitos ou na manutenção dos existentes. (Mais detalhes sobre funcionalidades específicas podem ser adicionados conforme o desenvolvimento ou um README mais completo seja disponibilizado).",
-    link: "https://github.com/danielcscarrtezini/habit_tracker",
-    technology: "Python"
-  }
+    title: 'Habit Tracker - Acompanhamento de Hábitos',
+    description:
+      'Aplicação desenvolvida para auxiliar no registro e acompanhamento de hábitos diários. O projeto tem como objetivo apoiar a organização pessoal e permitir que o usuário acompanhe seu progresso na criação e manutenção de hábitos.',
+    link: 'https://github.com/danielscartezini/habit_tracker',
+    technology: 'Python',
+  },
 ];
 
 export default function ProjectsPage() {
   return (
-    <main className="flex flex-col items-center min-h-screen p-8 bg-gray-50 text-gray-800">
-      <div className="max-w-4xl w-full">
-        <header className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-blue-600">Meus Projetos</h1>
-          <p className="text-xl text-gray-600 mt-2">Uma visão geral dos meus trabalhos e estudos recentes.</p>
+    <main className="min-h-screen bg-gray-50 px-6 py-12 text-gray-800">
+      <div className="mx-auto max-w-5xl">
+        <header className="mb-12 text-center">
+          <h1 className="text-4xl font-bold text-blue-600">
+            Meus Projetos
+          </h1>
+
+          <p className="mt-3 text-lg text-gray-600">
+            Uma visão geral dos meus trabalhos acadêmicos
+            e projetos de desenvolvimento.
+          </p>
         </header>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <section
+          aria-label="Lista de projetos"
+          className="grid gap-8 md:grid-cols-2"
+        >
           {projects.map((project) => (
-            <div key={project.id} className="bg-white shadow-xl rounded-lg p-6 flex flex-col justify-between">
+            <article
+              key={project.id}
+              className="flex flex-col justify-between rounded-xl bg-white p-6 shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
               <div>
-                <h2 className="text-2xl font-semibold text-gray-700 mb-3">{project.title}</h2>
-                <p className="text-gray-600 leading-relaxed mb-4 whitespace-pre-line">{project.description}</p>
-                <p className="text-sm text-gray-500 mb-1"><strong>Tecnologia:</strong> {project.technology}</p>
-              </div>
-              <Link href={project.link} legacyBehavior>
-                <a target="_blank" rel="noopener noreferrer" className="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg text-center transition duration-300 ease-in-out transform hover:-translate-y-0.5">
-                  Ver no GitHub
-                </a>
-              </Link>
-            </div>
-          ))}
-        </div>
+                <span className="inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700">
+                  {project.technology}
+                </span>
 
-        <footer className="text-center mt-12">
-          <Link href="/" legacyBehavior>
-            <a className="text-blue-600 hover:text-blue-800 font-semibold">
-              &larr; Voltar para a Página Inicial
-            </a>
+                <h2 className="mb-4 mt-4 text-2xl font-semibold text-gray-800">
+                  {project.title}
+                </h2>
+
+                <p className="leading-relaxed text-gray-600">
+                  {project.description}
+                </p>
+              </div>
+
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-block rounded-lg bg-blue-600 px-5 py-3 text-center font-semibold text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                Ver projeto no GitHub
+              </a>
+            </article>
+          ))}
+        </section>
+
+        <footer className="mt-12 text-center">
+          <Link
+            href="/"
+            className="font-semibold text-blue-600 hover:text-blue-800"
+          >
+            &larr; Voltar para a página inicial
           </Link>
         </footer>
       </div>
     </main>
   );
 }
-
