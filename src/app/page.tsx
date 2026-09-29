@@ -21,7 +21,7 @@ export default function HomePage() {
         </section>
 
         <section className="text-center mb-8">
-          <Link href="https://github.com/danielcscarrtezini" legacyBehavior>
+          <Link href="https://github.com/danielcscartezini" legacyBehavior>
             <a target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">
               Visite meu GitHub
             </a>
